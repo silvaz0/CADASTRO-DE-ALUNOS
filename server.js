@@ -16,5 +16,11 @@ app.post("/salvar", (req, res) => {
     let nome = req.body.nome;
     let idade = req.body.idade;
     
-})
+    let sql = "INSERT INTO alnos (nome, idade) VALUES (?, ?):"
+
+    conexao.query(sql, [nome, idade], (erro, resultado) => {
+        console.log(erro);
+  } else {
+    res.send("Aluno salvo com sucesso")
+  })
 })
